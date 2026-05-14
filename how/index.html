@@ -1,0 +1,134 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>how we work · knct.dev</title>
+<style>
+  :root {
+    --bg: #fff;
+    --fg: #000;
+    --muted: #666;
+    --rule: #ddd;
+    --link: #0000ee;
+    --visited: #551a8b;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #000;
+      --fg: #fff;
+      --muted: #999;
+      --rule: #333;
+      --link: #6ea8ff;
+      --visited: #b48cff;
+    }
+  }
+  html { background: var(--bg); color: var(--fg); }
+  body {
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 16px;
+    line-height: 1.6;
+    max-width: 640px;
+    margin: 0 auto;
+    padding: 3rem 1.25rem 2rem;
+  }
+  h1 { font-size: 1.25rem; margin: 0 0 2rem; font-weight: bold; }
+  h2 { font-size: 1rem; margin: 2.5rem 0 1rem; font-weight: bold; }
+  p { margin: 0 0 1.25rem; }
+  ul { padding-left: 1.25rem; margin: 0 0 1.25rem; }
+  li { margin-bottom: 0.5rem; }
+  a { color: var(--link); }
+  a:visited { color: var(--visited); }
+  hr { border: 0; border-top: 1px solid var(--rule); margin: 3rem 0 1rem; }
+  footer { color: var(--muted); font-size: 0.8rem; }
+  nav { margin-bottom: 2rem; }
+</style>
+</head>
+<body>
+
+<nav><a href="/">← knct</a></nav>
+
+<h1>how we work</h1>
+
+<p>three principles:</p>
+
+<p><strong>small, opinionated stacks.</strong> one tool per job. we don't debate, we ship. if a tool stops earning its place, we replace it.</p>
+
+<p><strong>ai-native, not ai-flavored.</strong> ai isn't a feature we bolt on. it's how we write code, communicate, and operate. we run our own models when it matters, hosted ones when it doesn't.</p>
+
+<p><strong>spec before code, evals before trust.</strong> we write specs first so humans and agents work from the same source of truth. and we don't trust llm output until we've measured it.</p>
+
+<h2>collaboration</h2>
+<ul>
+  <li><strong>github</strong> — code, actions, source of truth.</li>
+  <li><strong>linear</strong> — long-running projects, roadmaps, anything that outlives a discord thread.</li>
+  <li><strong>discord</strong> — everything else. async chat, ai bots, voice when we need it.</li>
+</ul>
+
+<h2>ai stack</h2>
+<ul>
+  <li><strong>claude code, opencode</strong> — primary coding agents. claude code for daily work, opencode when we need to swap models or run things locally.</li>
+  <li><strong>openrouter</strong> — hosted model access without juggling 12 api keys.</li>
+  <li><strong>own infra (r&amp;d)</strong> — gpu servers for local oss models. privacy, cost, and the freedom to experiment without asking permission.</li>
+  <li><strong>hermes, openclaw</strong> — discord bots wired into our workflow.</li>
+  <li><strong>mcp servers</strong> — openspec, playwright, linear. agents get real tools, not just text.</li>
+  <li><strong>langfuse</strong> — every llm call is observable. if you can't measure it, you can't improve it.</li>
+</ul>
+
+<h2>backend</h2>
+<ul>
+  <li><strong>python + fastapi</strong> — boring, fast, every library exists for it.</li>
+  <li><strong>langchain + langgraph</strong> — agent orchestration when you need state and branching.</li>
+  <li><strong>postgres</strong> — default database. one db until it isn't enough (usually never).</li>
+  <li><strong>typesense</strong> — search that doesn't require a phd to operate.</li>
+  <li><strong>neo4j</strong> — when relationships matter more than rows.</li>
+</ul>
+
+<h2>frontend</h2>
+<ul>
+  <li><strong>react + vite</strong> — fast dev loop, no framework lock-in.</li>
+  <li><strong>assistant-ui</strong> — pre-built chat surfaces so we don't rebuild the same interface every time.</li>
+  <li><strong>clerk</strong> — auth that just works.</li>
+</ul>
+
+<h2>infra &amp; ops</h2>
+<ul>
+  <li><strong>aws</strong> — cloud-first for production.</li>
+  <li><strong>kubernetes</strong> — local test environments and project sandboxes.</li>
+  <li><strong>sentry</strong> — errors. we want to know before users do.</li>
+  <li><strong>grafana</strong> — logs, metrics, dashboards.</li>
+  <li><strong>stripe</strong> — payments. boring answer, right answer.</li>
+</ul>
+
+<h2>methodology</h2>
+
+<p><strong>spec-driven development with openspec.</strong> every project starts with a written spec. agents and humans both work from it. specs evolve with the code, not separately.</p>
+
+<p><strong>local-first where it counts.</strong> more of our projects are moving toward local-first architectures — own your data, don't trust the providers, ship something that keeps working when the cloud doesn't.</p>
+
+<p><strong>experimentation is the job.</strong> r&amp;d isn't a side activity. trying new models, new patterns, new tools is how we stay ahead of the hype cycle instead of getting flattened by it.</p>
+
+<p><strong>evaluate everything.</strong> llms are tools, not oracles. we run evals before we trust outputs in production. "it works on my prompt" is not shipping.</p>
+
+<h2>projects we're building in the open</h2>
+<ul>
+  <li><strong>knct/docs</strong> [wip] — an opinionated internal knowledge hub. every team reinvents this badly. we're building one we'd actually use.</li>
+  <li><strong>tilodesk</strong> [wip] — the missing layer between dev teams and clients. closing the gap that tickets and slack threads don't fix.</li>
+</ul>
+
+<h2>what we've learned</h2>
+<ul>
+  <li>write the spec before the code. agents and humans both work better that way.</li>
+  <li>evaluate agents. don't trust llms.</li>
+  <li>observability is non-negotiable. we don't ship without confidence.</li>
+  <li>boring tech is a competitive advantage. save your weirdness for the product.</li>
+  <li>one database until it hurts. it rarely hurts.</li>
+  <li>experimentation isn't optional. r&amp;d is how you stay ahead of the hype.</li>
+  <li>if you can't observe it, you can't improve it.</li>
+</ul>
+
+<hr>
+<footer>knct · 2026</footer>
+
+</body>
+</html>
